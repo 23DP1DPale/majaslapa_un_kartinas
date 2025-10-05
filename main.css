@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    font-family: sans-serif;
+    display: grid;
+    grid-template-columns: 75vw 25vw;
+    grid-template-rows: 60px 1fr auto;
+    grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    display: grid;
+    grid-area: header;
+    grid-template-columns: 3;
+    grid-template-rows: 1;
+    grid-template-areas: 
+    "title nav nav";
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    user-select: none;
+}
+
+#title {
+    grid-area: title;
+    padding-left: 75px;
+    font-size: 25px;
+}
+
+nav {
+    display: flex;
+    gap: 50px;
+    font-size: 20px;
+    grid-area: nav;
+    justify-self: right;
+    padding-right: 50px;
+}
+
+nav > a {
+    color: white;
+}
+
+nav > a:hover {
+    text-decoration: underline;
+}
+
+main {
+    grid-area: main;
+    margin-left: 100px;
+    position: relative;
+    display: grid;
+    align-self: center;
+    grid-template-columns: 1fr 50px 1fr;
+    grid-template-rows: 1fr 150px;
+    grid-template-areas: 
+    "main-title . ."
+    "main-text . image";
+}
+
+main > h1 {
+    grid-area: main-title;
+    align-self: self-end;
+    font-size: 50px;
+}
+
+main > p {
+    font-size: 23px;
+    grid-area: main-text;
+}
+
+main > img {
+    grid-area: image;
+    height: 50px;
+}
+
+aside {
+    grid-area: aside;
+    background-color: rgb(246, 250, 215);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+aside > ul > li {
+    font-size: 20px;
+    padding: 10px;
+}
+
+#cinema-img {
+    height: 300px;
+    transform: translateY(-30%);
+    position: absolute;
+    right: 150px;
+}
+
+footer {
+    display: flex;
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    color: white;
+    justify-content: center;
+    background-color: rgb(66, 68, 97);
+    align-items: center;
+    justify-content: end;
+}
+
+#social-container {
+    display: flex;
+    gap: 15px;
+    user-select: none;
+}
+
+.social {
+    height: 50px;
+}
+
+.social:hover {
+    filter: brightness(110%);
+    cursor: pointer;
+}
+
+@media (max-width: 1650px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "main-title"
+        "main-text"
+        "image";
+    }
+
+    #cinema-img {
+        height: 200px;
+        transform: translateY(0);
+        transform: translateX(50%);
+        position: relative;
+    }
+}

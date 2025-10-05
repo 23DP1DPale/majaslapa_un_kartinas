@@ -1,0 +1,218 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(white 50%, rgb(218, 218, 218))
+}
+
+header {
+    width: 100%;
+    height: 5vh;
+    background-color: rgb(44, 58, 77);
+}
+
+nav {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    font-size: 20px;
+}
+
+a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: rgb(211, 231, 245);
+    text-shadow: 0px 0px 40px rgb(255, 255, 255);
+}
+
+main.dark-mode {
+    background: linear-gradient(rgb(49, 48, 48) 60%, black)
+}
+
+#nav-section.dark-mode {
+    background-color: rgb(233, 236, 250);
+}
+
+#nav-section.dark-mode > nav > a {
+    color: black;
+}
+
+#nav-section.dark-mode > nav > a:hover {
+    text-shadow: 0px 0px 40px rgb(0, 62, 185);
+}
+
+.card.dark-mode-card {
+    background: radial-gradient(circle 115px at 50% 35%, rgb(240, 251, 255) 100px, rgb(20, 21, 26));
+    border-color: rgb(226, 228, 255);
+    color: white;
+}
+
+.card.dark-mode-card:hover {
+    box-shadow: 10px 10px rgb(53, 47, 47);
+}
+
+.card.dark-mode-card > .button:hover {
+    box-shadow: none;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    gap: 150px;
+}
+
+.card {
+    height: 500px;
+    width: 350px;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 4;
+    grid-template-areas: 
+    "title"
+    "image"
+    "desc"
+    "button";
+    justify-content: center;
+    text-align: center;
+    border: solid 5px black;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 240);
+    transition: transform 1s,
+    box-shadow 0.75s;
+}
+
+.card > h1 {
+    grid-area: title;
+    justify-self: center;
+}
+
+.card > img {
+    grid-area: image;
+    justify-self: center;
+    height: 150px;
+    mix-blend-mode: multiply;
+    transition: 1s;
+    user-select: none;
+}
+
+.card > p {
+    grid-area: desc;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 0;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    grid-area: button;
+    align-self: center;
+    height: 75px;
+    width: 75px;
+    border: solid 5px rgb(58, 94, 64);
+    border-radius: 100%;
+    background-color: rgb(211, 255, 144);
+    transition: 0.5s;
+}
+
+.button:hover {
+    cursor: pointer;
+    transform: scale(110%);
+    transform: translateY(-2px);
+    box-shadow: 4px 4px rgb(175, 175, 175);
+}
+
+.button:hover > div > div {
+    background-color: rgb(64, 195, 52);
+}
+
+.card:hover {
+    transform: scale(110%);
+    box-shadow: 10px 10px rgb(201, 201, 201);
+}
+
+.card:hover img {
+    height: 200px;
+    transform: translateY(-15px);
+}
+
+.button > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    border-radius: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.button > div > div {
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    background-color: rgb(182, 224, 119);
+    transition: 0.5s;
+}
+
+@media (max-width: 1400px) {
+    main {
+        gap: 50px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .card {
+        height: 400px;
+        grid-template-rows: 50px 1fr 100px 90px;
+        grid-template-areas: 
+        "title"
+        "image"
+        "desc"
+        "button";
+    }
+    .card > h1 {
+        font-size: 1.5em;
+    }
+
+    .card.dark-mode-card {
+        background: radial-gradient(circle 80px at 50% 31%, rgb(240, 251, 255) 70px, rgb(20, 21, 26));
+        border-color: rgb(226, 228, 255);
+        color: white;
+    }
+}
+
+@media (max-width: 900px) {
+    .card > h1 {
+        font-size: 1.2em;
+    }
+
+    .card > p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 750px) {
+    .card > h1 {
+        font-size: 1em;
+    }
+
+    .card > p {
+        font-size: 15px;
+    }
+}
