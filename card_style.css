@@ -2,7 +2,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background: linear-gradient(white 50%, rgb(218, 218, 218))
+    background: linear-gradient(white 50%, rgb(218, 218, 218));
+    height: 100vh;
 }
 
 header {
@@ -83,36 +84,36 @@ a:hover {
     }
 }
 
-main.dark-mode {
+body.dark-mode {
     background: linear-gradient(rgb(49, 48, 48) 60%, black)
 }
 
-#nav-section.dark-mode {
+body.dark-mode > #nav-section {
     background-color: rgb(233, 236, 250);
 }
 
-#nav-section.dark-mode > nav > a {
+body.dark-mode > #nav-section > nav > a {
     color: black;
 }
 
-#nav-section.dark-mode > nav > a:hover {
+body.dark-mode > #nav-section > nav > a:hover {
     text-shadow: 0px 0px 40px rgb(0, 62, 185);
 }
 
-#nav-section.dark-mode > nav > #dropdown > #dropbtn {
+body.dark-mode > #nav-section > nav > #dropdown > #dropbtn {
     background-color: rgb(233, 236, 250);
     color: black;
 }
 
-#nav-section.dark-mode > nav > #dropdown > #dropdown-content {
+body.dark-mode > #nav-section > nav > #dropdown > #dropdown-content {
     background-color: rgb(233, 236, 250);
 }
 
-#nav-section.dark-mode > nav > #dropdown > #dropdown-content a {
+body.dark-mode > #nav-section > nav > #dropdown > #dropdown-content a {
     color: black;
 }
 
-#nav-section.dark-mode > nav > #dropdown > #dropdown-content a:hover {
+body.dark-mode > #nav-section > nav > #dropdown > #dropdown-content a:hover {
     background-color: rgb(208, 208, 208);
 }
 
@@ -130,12 +131,46 @@ main.dark-mode {
     box-shadow: none;
 }
 
-main {
+#main-section {
+    display: grid;
+    grid-template-columns: minmax(0, 150px) 1fr 150px;
+    grid-template-rows: 20vh 1fr;
+    grid-template-areas: 
+    ". search ."
+    ". cards .";
+}
+
+#search-section {
+    align-self: flex-end;
+    margin-bottom: 50px;
+    grid-area: search;
+}
+
+#card-section {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 95vh;
-    gap: 150px;
+    justify-content: space-around;
+    grid-area: cards;
+}
+
+#search-content {
+    border: solid 1px black;
+    border-radius: 10px;
+    padding: 5px;
+    height: 25px;
+    width: 250px;
+
+}
+
+#search-btn {
+    background: white;
+    border: solid 1px black;
+    border-radius: 10px;
+    height: 25px;
+}
+
+#search-btn:hover {
+    cursor: pointer;
+    background: rgb(230, 251, 255);
 }
 
 .card {
@@ -233,51 +268,4 @@ main {
     border-radius: 100%;
     background-color: rgb(182, 224, 119);
     transition: 0.5s;
-}
-
-@media (max-width: 1400px) {
-    main {
-        gap: 50px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .card {
-        height: 400px;
-        grid-template-rows: 50px 1fr 100px 90px;
-        grid-template-areas: 
-        "title"
-        "image"
-        "desc"
-        "button";
-    }
-    .card > h1 {
-        font-size: 1.5em;
-    }
-
-    .card.dark-mode-card {
-        background: radial-gradient(circle 80px at 50% 31%, rgb(240, 251, 255) 70px, rgb(20, 21, 26));
-        border-color: rgb(226, 228, 255);
-        color: white;
-    }
-}
-
-@media (max-width: 900px) {
-    .card > h1 {
-        font-size: 1.2em;
-    }
-
-    .card > p {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 750px) {
-    .card > h1 {
-        font-size: 1em;
-    }
-
-    .card > p {
-        font-size: 15px;
-    }
 }
