@@ -136,14 +136,27 @@ body.dark-mode > #nav-section > nav > #dropdown > #dropdown-content a:hover {
     grid-template-columns: minmax(0, 150px) 1fr 150px;
     grid-template-rows: 20vh 1fr;
     grid-template-areas: 
-    ". search ."
+    ". filter ."
     ". cards .";
 }
 
+#filter-section {
+    display: grid;
+    grid-area: filter;
+    grid-template-columns: 3;
+    grid-template-rows: 1;
+    grid-template-areas: 
+    "search . sort";
+    align-items: center;
+}
+
 #search-section {
-    align-self: flex-end;
-    margin-bottom: 50px;
     grid-area: search;
+}
+
+#sort-section {
+    grid-area: sort;
+    justify-self: center;
 }
 
 #card-section {

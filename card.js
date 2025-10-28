@@ -22,12 +22,25 @@ searchBtn.addEventListener("click", () => {
     showCards();
 });
 
+const sortAZ = document.getElementById("sort-az");
+const sortZA = document.getElementById("sort-za");
 
-function showCards() {
+sortZA.addEventListener("click", () => {
+    showCards(az);
+});
+
+sortAZ.addEventListener("click", () => {
+    showCards(za);
+});
+
+function showCards(sort) {
     cardContainer.innerHTML = "";
+    let sortedProducts = Object.fromEntries(
+        Object.entries(products).sort();
+    );
     products.forEach(product => {
         let card = null;
-        if (product.name.search(searchContent.value) != -1) {
+        if (product.name.toLowerCase().search(searchContent.value.toLowerCase()) != -1) {
             card = document.createElement("div");
             card.classList.add("card");
             card.innerHTML = `
