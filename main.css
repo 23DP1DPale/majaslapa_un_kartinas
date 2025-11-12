@@ -6,7 +6,7 @@ body {
     font-family: sans-serif;
     display: grid;
     grid-template-columns: 75vw 25vw;
-    grid-template-rows: 60px 1fr auto;
+    grid-template-rows: 60px 700px auto;
     grid-template-areas:
     "header header"
     "main aside"
@@ -227,31 +227,69 @@ aside > ul > li {
 }
 
 footer {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 50px 30px;
+    grid-template-areas: 
+    "form"
+    "socials"
+    "copyright";
     grid-area: footer;
+    color: white;
+    background-color: rgb(66, 68, 97);
+}
+
+form {
     display: flex;
     flex-direction: column;
-    height: 120px;
-    color: white;
-    justify-content: center;
-    background-color: rgb(66, 68, 97);
-    align-items: center;
-    justify-content: end;
+    justify-self: left;
+    grid-area: form;
+    margin: 15px;
+}
+
+form > label {
+    padding: 5px;
+}
+
+#form-text {
+    text-align: start;
+    height: 100px;
+    min-width: 300px;
+}
+
+#form-message {
+    opacity: 0;
+    transform: scale(50%);
+    transition: 0.1s;
 }
 
 #social-container {
     display: flex;
     gap: 15px;
     user-select: none;
+    grid-area: socials;
+    justify-self: center;
+}
+
+#form-submit {
+    width: 50%;
+    margin-top: 10px;
+    background: linear-gradient(to right bottom, white, rgb(187, 187, 187));
 }
 
 .social {
-    height: 50px;
+    height: 35px;
 }
 
 .social:hover {
     filter: brightness(110%);
     cursor: pointer;
+}
+
+#copyright {
+    grid-area: copyright;
+    justify-self: center;
+    margin: 0;
 }
 
 @media (max-width: 1650px) {
