@@ -9,9 +9,7 @@ const sortZA = document.getElementById("sort-za");
 
 dark_mode.addEventListener("click", () => {
     body.classList.toggle("dark-mode");
-    cards.forEach((card) => {
-        card.classList.toggle("dark-mode-card");
-    })
+    cardContainer.classList.toggle("dark-mode-card");
 })
 
 const products = [
@@ -20,7 +18,8 @@ const products = [
     {prod: "Kafijas automāts", image: "images/kafija.jpg", desc: "Kompakts un ērts kafijas aparāts ar kapsulām gardai kafijai mājās."}
 ];
 
-searchBtn.addEventListener("click", () => {
+searchContent.addEventListener("input", () => {
+    console.log(searchContent.value)
     showCards();
 });
 
@@ -41,7 +40,7 @@ function showCards(sortBy) {
     };
     products.forEach(product => {
         let card = null;
-        if (product.prod.toLowerCase().search(searchContent.value.toLowerCase()) != -1) {
+        if (product.prod.toLowerCase().search(searchContent.value.toLowerCase()) != -1 || product.desc.toLowerCase().search(searchContent.value.toLowerCase()) != -1) {
             card = document.createElement("div");
             card.classList.add("card");
             card.innerHTML = `

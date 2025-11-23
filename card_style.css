@@ -117,17 +117,17 @@ body.dark-mode > #nav-section > nav > #dropdown > #dropdown-content a:hover {
     background-color: rgb(208, 208, 208);
 }
 
-.card.dark-mode-card {
+#card-section.dark-mode-card > .card {
     background: radial-gradient(circle 115px at 50% 35%, rgb(240, 251, 255) 100px, rgb(20, 21, 26));
     border-color: rgb(226, 228, 255);
     color: white;
 }
 
-.card.dark-mode-card:hover {
+#card-section.dark-mode-card > .card:hover {
     box-shadow: 10px 10px rgb(53, 47, 47);
 }
 
-.card.dark-mode-card > .button:hover {
+#card-section.dark-mode-card > .card > .button:hover {
     box-shadow: none;
 }
 
@@ -152,11 +152,12 @@ body.dark-mode > #nav-section > nav > #dropdown > #dropdown-content a:hover {
 
 #search-section {
     grid-area: search;
+    position: relative;
 }
 
 #sort-section {
     grid-area: sort;
-    justify-self: center;
+    justify-self: right;
 }
 
 #card-section {
@@ -168,22 +169,42 @@ body.dark-mode > #nav-section > nav > #dropdown > #dropdown-content a:hover {
 #search-content {
     border: solid 1px black;
     border-radius: 10px;
-    padding: 5px;
+    padding-right: 30px;
+    padding-left: 5px;
     height: 25px;
     width: 250px;
-
+    transition: 0.1s;
 }
 
-#search-btn {
-    background: white;
-    border: solid 1px black;
-    border-radius: 10px;
+#search-content:focus {
+    transform: scale(101%);
+}
+
+#search-icon {
     height: 25px;
+    position: absolute;
+    left: 255px;
+    mix-blend-mode: multiply;
+    user-select: none;
+    align-self: center;
 }
 
-#search-btn:hover {
+.sort-btn {
+    border-radius: 10px;
+    background-color: rgb(223, 240, 255);
+    border: 2px solid rgb(38, 49, 56);
+    box-shadow: 2px 2px rgb(110, 128, 142);
+    transition: 0.1s;
+}
+
+.sort-btn:hover {
+    border-radius: 10px;
+    background-color: rgb(235, 241, 249);
     cursor: pointer;
-    background: rgb(230, 251, 255);
+}
+
+.sort-btn:active {
+    transform: scale(90%);
 }
 
 .card {
